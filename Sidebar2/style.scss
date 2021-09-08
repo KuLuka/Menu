@@ -1,0 +1,170 @@
+$red:#EA1C24;
+$black:#282828;
+$gray:#4C4C4C;
+$font:#737373;
+$cat-color:#f0f0f0;
+
+
+@mixin miniTablet-Logo {
+    @media(min-width:600px) and (max-width:700px) {@content;}
+}
+
+@mixin Tablet-Logo {
+    @media(min-width:700px) and (max-width:899px) {@content;}
+}
+
+@mixin Tablet  {
+    @media(min-width:600px)and (max-width:899px) {@content;}
+}
+
+@mixin Desktop1 {
+    @media(min-width:900px) and (max-width:1290px) {@content};
+}
+
+@mixin Desktop2 {
+    @media(min-width:1291px) {@content}
+}
+
+
+.navbar {
+    font-size:1.5rem;
+    color:$black;
+    position:absolute;
+    top:1rem;
+    left:1rem;
+    
+
+    @include miniTablet-Logo() {
+        top:1.5rem;
+        left:1.5rem;
+    }
+
+    @include Tablet-Logo () {
+        top:2rem;
+        left:2rem;
+    }
+    
+
+    @include Desktop1() {
+        display:none;
+    }
+
+    @include Desktop2() {
+        display:none;
+    }
+}
+
+.nav-menu {
+    background:#fff;
+    width:250px;
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    position:fixed;
+    top:0;
+    left:-100%;
+    transition:850ms;
+    border-right:1px solid $font;
+    z-index:10000;
+
+    @include Tablet() {
+        width:350px;
+    }
+}
+
+.nav-menu.active {
+    left:0;
+    transition:350ms;
+}
+
+.nav-text {
+    display:flex;
+    justify-content:start;
+    align-items:center;
+    padding:8px 0px 8px 16px;
+    list-style:none;
+    height:60px;
+}
+
+.nav-text a {
+    text-decoration:none;
+    color:$black;
+    font-size:2rem;
+    height:100%;
+    width:95%;
+    display:flex;
+    align-items:center;
+    padding:0 16px;
+    border-radius:5px;
+    
+}
+
+.nav-menu-items {
+    width:100%;
+
+}
+
+.navbar-toggle {
+    
+    width:100%;
+    height:80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.menu-bars {
+    font-size:1.5rem;
+    position:absolute;
+    top:1rem;
+    left:1rem;
+
+    @include miniTablet-Logo() {
+        top:1.5rem;
+        left:1.5rem;
+    }
+
+    @include Tablet-Logo () {
+        top:2rem;
+        left:2rem;
+    }
+    
+
+    @include Desktop1() {
+        display:none;
+    }
+
+    @include Desktop2() {
+        display:none;
+    }
+}
+
+
+.infos {
+    border-top:1px solid $font;
+    padding-top:1.4rem;
+    margin:1rem 1.8rem;
+    height:130px;
+    display:flex;
+    justify-content: space-between;
+    flex-direction:column;
+
+    a {
+        text-decoration:none;
+        color:$gray;
+        font-size:1rem;
+    }
+
+    .telefon-icon {
+        margin-right:.5rem;
+        
+    }
+ 
+    .email-envelope {
+        margin-right:.5rem;
+    }
+
+    .facebook {
+        margin-right:.5rem;
+    }
+}
